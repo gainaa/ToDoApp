@@ -2,16 +2,16 @@ const input = document.querySelector("input[type ='text']");
 const ul = document.querySelector("ul");
 const lists = document.querySelectorAll("li");
 const spans = document.getElementsByTagName("span");
+const pencil = document.querySelector("#pencil");
 
-
-// function deleteTodo() {
-//     for (let span of spans) {
-//         span.addEventListener("click", function () {
-//             span.parentElement.remove();
-//             event.stopPropagation();
-//         });
-//     }
-// }
+function deleteTodo() {
+    for (let span of spans) {
+        span.addEventListener("click", function () {
+            span.parentElement.remove();
+            event.stopPropagation();
+        });
+    }
+}
 
 input.addEventListener("keypress", function (keyPressed) {
     if (keyPressed.which === 13) {
@@ -35,3 +35,7 @@ ul.addEventListener('click', (e) => {
         e.target.classList.toggle('checked');
     }
 }, false);
+
+pencil.addEventListener('click', function () {
+    input.classList.toggle('display');
+});
