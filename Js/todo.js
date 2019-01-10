@@ -1,25 +1,25 @@
 const input = document.querySelector("input[type ='text']");
 const ul = document.querySelector("ul");
 const lists = document.querySelectorAll("li");
-const spans = document.getElementsByTagName("span");
+const span = document.getElementsByTagName("span");
 const pencil = document.querySelector("#pencil");
 
-function deleteTodo() {
-    for (let span of spans) {
-        span.addEventListener("click", function () {
-            span.parentElement.remove();
-            event.stopPropagation();
-        });
-    }
-}
+// function deleteTodo() {
+//     for (let span of spans) {
+//         span.addEventListener("click", function () {
+//             span.parentElement.remove();
+//             event.stopPropagation();
+//         });
+//     }
+// }
 
-input.addEventListener("keypress", function (keyPressed) {
+const addTask = function (keyPressed) {
     if (keyPressed.which === 13) {
         const li = document.createElement("li");
         const spanElement = document.createElement("span");
         const icon = document.createElement("i");
 
-        let newTodo = this.value;
+        const newTodo = this.value;
         this.value = " ";
 
         icon.classList.add('fas', 'fa-trash-alt');
@@ -28,7 +28,9 @@ input.addEventListener("keypress", function (keyPressed) {
 
         deleteToDo();
     }
-});
+};
+input.addEventListener("keypress", addTask);
+
 
 ul.addEventListener('click', (e) => {
     if (e.target.tagName === 'LI') {
