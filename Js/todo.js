@@ -1,17 +1,17 @@
 const input = document.querySelector("input[type ='text']");
 const ul = document.querySelector("ul");
 const lists = document.querySelectorAll("li");
-const span = document.getElementsByTagName("span");
+const spans = document.getElementsByTagName("span");
 const pencil = document.querySelector("#pencil");
 
-// function deleteTodo() {
-//     for (let span of spans) {
-//         span.addEventListener("click", function () {
-//             span.parentElement.remove();
-//             event.stopPropagation();
-//         });
-//     }
-// }
+function deleteToDo() {
+    for (let span of spans) {
+        span.addEventListener("click", function () {
+            span.parentElement.remove();
+            event.stopPropagation();
+        });
+    }
+};
 
 const addTask = function (keyPressed) {
     if (keyPressed.which === 13) {
